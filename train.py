@@ -23,9 +23,9 @@ from sklearn.utils.class_weight import compute_class_weight
 
 warnings.filterwarnings("ignore")
 
-DATASET_PATH = "../data/bank-full.csv"
-MODEL_OUTPUT_DIR = "../models"
-PLOT_OUTPUT_DIR = "../reports/figures"
+DATASET_PATH = "bank-data/bank-full.csv"
+MODEL_OUTPUT_DIR = "models"
+PLOT_OUTPUT_DIR = "reports/figures"
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
 CV_FOLDS = 5
@@ -35,7 +35,7 @@ def load_data(path: str) -> pd.DataFrame:
     sep = ";" if path.endswith(".csv") else ","
     df = pd.read_csv(path, sep=sep)
     df.columns = df.columns.str.strip().str.replace('"', "")
-    df = df.applymap(lambda x: x.strip().replace('"', "") if isinstance(x, str) else x)
+    df = df.map(lambda x: x.strip().replace('"', "") if isinstance(x, str) else x)
     return df
 
 

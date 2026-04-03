@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 
-MODEL_PATH = "../models/logistic_regression_model.pkl"
+MODEL_PATH = "models/logistic_regression_model.pkl"
 
 CATEGORICAL_COLS = [
     "job", "marital", "education", "default", "housing",

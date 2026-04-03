@@ -6,15 +6,15 @@ import seaborn as sns
 
 warnings.filterwarnings("ignore")
 
-DATASET_PATH = "../data/bank-full.csv"
-PLOT_OUTPUT_DIR = "../reports/figures"
+DATASET_PATH = "bank-data/bank-full.csv"
+PLOT_OUTPUT_DIR = "reports/figures"
 
 
 def load_data(path: str) -> pd.DataFrame:
     sep = ";" if path.endswith(".csv") else ","
     df = pd.read_csv(path, sep=sep)
     df.columns = df.columns.str.strip().str.replace('"', "")
-    df = df.applymap(lambda x: x.strip().replace('"', "") if isinstance(x, str) else x)
+    df = df.map(lambda x: x.strip().replace('"', "") if isinstance(x, str) else x)
     return df
 
 
