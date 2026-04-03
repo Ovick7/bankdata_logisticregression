@@ -34,6 +34,19 @@ A banking institution needs to identify customers likely to subscribe to a term 
 | poutcome | Categorical | Outcome of previous campaign |
 | y | Categorical | Subscribed to term deposit (target) |
 
+## Approach
+
+This project follows a structured machine learning pipeline to predict bank term deposit subscriptions:
+
+1. **Data Exploration** – Load and visualize the dataset to understand distributions, class imbalance, and feature relationships
+2. **Data Preprocessing** – Handle categorical features via label encoding and scale numeric features using standardization
+3. **Model Selection** – Use Logistic Regression for its interpretability, calibrated probabilities, and efficiency on tabular data
+4. **Training & Validation** – Train the model on 80% of data with 5-fold stratified cross-validation for robust evaluation
+5. **Evaluation** – Assess performance using ROC-AUC, Precision-Recall, and confusion matrices (accounting for class imbalance)
+6. **Inference** – Deploy the trained pipeline on new customer records to generate subscription probabilities
+
+The entire workflow is implemented in modular Python scripts for reproducibility and ease of maintenance.
+
 ## Project Structure
 
 ```
